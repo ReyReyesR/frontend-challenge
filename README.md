@@ -44,7 +44,7 @@ I aimed at 100 points at SEO, Accessibility and Good Practices.
 
 ![Performance](public/lighthouse.png)
 
-## Features
+## Features
 
 The ratings overview was ~copied~ inspired by Amazon's product rating system. This means the bars are fully clickable and they will filter the reviews shown alongside the chart on the landing page. This also contains a count of the total ratings and the average score of the product as seen here.
 
