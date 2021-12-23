@@ -1,62 +1,96 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './index.module.css'
+import React, { useState, useEffect } from "react";
+import getReviews from "../helpers/getReviews";
+import processReviews from "../helpers/processReviews";
+import Chart from "../components/chart/Chart";
+import Reviews from "../components/reviews/Reviews";
+import classes from "./index.module.css";
+import Button from "../components/ui/button";
+import ReactStars from "react-rating-stars-component";
 
-const Home = () => (
-  <div className={styles.container}>
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+const Home = () => {
+  const [data, setData] = useState(null);
+  const [ratings, setRatings] = useState(0);
+  const [reviews, setReviews] = useState(null);
+  const [value, setValue] = useState(0);
+  const [filter, setFilter] = useState(null);
 
-    <main>
-      <h1 className={styles.title}>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+  const getAllReviews = async (filter) => {
+    if (filter) {
+      const allReviews = await getReviews(filter);
+      setReviews(allReviews);
+    } else {
+      const allReviews = await getReviews();
+      const { total, five, four, three, two, one, count } =
+        processReviews(allReviews);
+      setData([five, four, three, two, one]);
+      setValue(parseFloat(total.toFixed(2)));
+      setReviews(allReviews);
+      setRatings(count);
+    }
+  };
 
-      <p className={styles.description}>
-        Get started by editing <code>pages/index.js</code>
-      </p>
+  const reviewFilterCallback = (data) => {
+    setFilter(data);
+  };
 
-      <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+  useEffect(() => {
+    getAllReviews(filter);
+  }, [filter]);
 
-        <a href="https://nextjs.org/learn" className={styles.card}>
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
+  useEffect(() => {
+    getAllReviews();
+  }, []);
 
-        <a
-          href="https://github.com/vercel/next.js/tree/master/examples"
-          className={styles.card}
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
+  return (
+    <div className={classes.container}>
+      <main>
+        <h1 className={classes.title}>Checkout.com Customer Feedback Page</h1>
+        <div className={classes.grid}>
+          <div className={classes.left}>
+            {
+              <div className={classes.box}>
+                <h2>Customer Reviews</h2>
+                {value ? (
+                  <div>
+                    <ReactStars
+                      activeColor="#f5961d"
+                      count={5}
+                      edit={false}
+                      isHalf={true}
+                      value={value}
+                      size={24}
+                    />
+                    {value} out of 5
+                  </div>
+                ) : (
+                  <div>No ratings!</div>
+                )}
+                <div>{ratings} Total Ratings</div>
+                {filter && (
+                  <div className={classes.button}>
+                    <Button onClick={() => setFilter(null)}>
+                      Clear Filters
+                    </Button>
+                  </div>
+                )}
+                <div className={classes.chart}>
+                  <Chart data={data} filter={reviewFilterCallback} />
+                </div>
+              </div>
+            }
+            <div className={classes.feedback}>
+              <strong>Review this product!</strong>
+              <p>Tell us what you think</p>
+              <Button link="/review">Write a Review</Button>
+            </div>
+          </div>
+          <div className={classes.right}>
+            <Reviews data={reviews} />
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
 
-        <a href="https://vercel.com/new" className={styles.card}>
-          <h3>Deploy &rarr;</h3>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </a>
-      </div>
-    </main>
-
-    <footer className={styles.footer}>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by{' '}
-        <span className={styles.logo}>
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </span>
-      </a>
-    </footer>
-  </div>
-)
-
-export default Home
+export default Home;

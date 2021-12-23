@@ -1,0 +1,15 @@
+.form {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+      79.97% 124.8% at 80.57% 44.85%,
+      rgba(43, 212, 219, 0.243) 0%,
+      rgba(43, 212, 219, 0) 100%
+    ),
+    rgb(12, 17, 66);
+}

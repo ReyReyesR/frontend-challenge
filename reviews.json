@@ -1,0 +1,44 @@
+{
+  "reviews": [
+    {
+      "comment": "Miniatures are never the most economic option, but a neat way to sample the different versions/maturity at a relatively reasonable price, certainly cheaper than 3 full bottles!",
+      "email": "rey@email.co.uk",
+      "fullName": "Rey Reyes",
+      "rating": 4,
+      "title": "Not bad value",
+      "id": 1
+    },
+    {
+      "comment": "Nice to try the 3 years. Then I had to order the 18yr old from Amazon. So amazing. way above my normal price, so will be kept for an occasion.",
+      "email": "not.reynaldo@email.co.uk",
+      "fullName": "NOT Rey Reyes",
+      "rating": 5,
+      "title": "Good Value",
+      "id": 2
+    },
+    {
+      "comment": "Excellent birthday gift for a whiskey lover. Brilliant that you get a selection of three for people like me that don’t know whiskey at all and wouldn’t know which 1 bottle to buy.",
+      "email": "Claire@email.com",
+      "fullName": "Claire",
+      "rating": 5,
+      "title": "Value for money",
+      "id": 3
+    },
+    {
+      "comment": "Please be aware the photo shows the 12 14 15 year old whisky the 2 boxes I received were 12 15 18 year old. I bought as gifts so not a big problem but I did want to try the 14 year old before I bought the 70cl size but that’s not going to happen and I’m not sure I’ll receive the right age whisky if I did order. Not happy.",
+      "email": "reynaldo.reyes@email.co.uk",
+      "fullName": "Rey Rey",
+      "rating": 1,
+      "title": "Photo incorrect",
+      "id": 4
+    },
+    {
+      "comment": "This was a gift. Not sure yet what it is like. I thought bottles samples small.",
+      "email": "this.is.not.my.email@email.com",
+      "fullName": "Anonymous",
+      "rating": 3,
+      "title": "Samples small",
+      "id": 5
+    }
+  ]
+}

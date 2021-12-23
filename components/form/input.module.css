@@ -1,0 +1,87 @@
+.input label {
+  font-weight: bold;
+  display: flex;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.stars {
+  margin: 1.5rem 0 1rem 0;
+  font-weight: bold;
+  display: flex;
+  width: 300px;
+}
+
+.input input[type="email"],
+.input input[type="text"] {
+  padding: 0.65rem 0.5rem;
+  font-size: 1rem;
+  background-color: #2d3748;
+  border: 2px solid #4a5568;
+  color: white;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 300px;
+}
+
+.input input:focus {
+  outline: none;
+  border: 2px solid #63b3ed;
+}
+
+.input textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  border: 2px solid #4a5568;
+  border-radius: 10px;
+  background-color: #2d3748;
+  color: white;
+  resize: vertical;
+  box-sizing: border-box;
+  padding: 0.65rem 0.5rem;
+  font-family: helvetica, arial, sans-serif;
+  width: 300px;
+}
+
+.input input:invalid,
+.input textarea:invalid {
+  border: 2px solid #ff7d87;
+  box-shadow: none;
+}
+
+.error {
+  font-size: 12px;
+  color: #fc8181;
+  width: 400px;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 280px) {
+  .stars,
+  .input input[type="email"],
+  .input input[type="text"],
+  .input textarea {
+    width: 260px;
+  }
+}
+
+@media (min-width: 600px) {
+  .stars,
+  .input input[type="email"],
+  .input input[type="text"],
+  .input textarea {
+    width: 600px;
+  }
+}
+
+@media (min-width: 900px) {
+  .stars,
+  .input input[type="email"],
+  .input input[type="text"],
+  .input textarea {
+    width: 900px;
+  }
+}

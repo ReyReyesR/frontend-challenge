@@ -1,6 +1,19 @@
-import '../styles/global.css'
+import Layout from "../components/layout/layout";
+import "../styles/global.css";
+import { ToastProvider } from "react-toast-notifications";
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  return (
+    <Layout>
+      <ToastProvider
+        autoDismissTimeout={2000}
+        autoDismiss={true}
+        placement="bottom-center"
+      >
+        <Component {...pageProps} />
+      </ToastProvider>
+    </Layout>
+  );
 }
+
+export default MyApp;

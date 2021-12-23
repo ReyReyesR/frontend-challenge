@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 10%;
+  height: 5rem;
+  background-color: #202020;
+}
+
+.logo {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  vertical-align: bottom;
+}
+
+@media (min-width: 768px) {
+  .navigation a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navigation a {
+    font-size: 1rem;
+  }
+}
