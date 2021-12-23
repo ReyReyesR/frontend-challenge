@@ -39,6 +39,14 @@
       "rating": 3,
       "title": "Samples small",
       "id": 5
+    },
+    {
+      "comment": "Bad",
+      "email": "Jane@mail.com",
+      "fullName": "Jane",
+      "rating": 2,
+      "title": "Title",
+      "id": 6
     }
   ]
 }

@@ -9,7 +9,7 @@ import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
-const clickHandler = (index) => {
+const mapIndexToRating = (index) => {
   switch (index) {
     case 0:
       return 5;
@@ -26,12 +26,12 @@ const clickHandler = (index) => {
   }
 };
 
-const Chart = ({ data, filter }) => {
+const Chart = ({ data, callback }) => {
   const labels = ["5 Stars", "4 Stars", "3 Stars", "2 Stars", "1 Star"];
   const options = {
     onClick: (event, element) => {
-      const index = clickHandler(element[0]?.index);
-      filter(index);
+      const index = mapIndexToRating(element[0]?.index);
+      callback(index);
     },
     onHover: (event, element) => {
       event.native.target.style.cursor = element[0] ? "pointer" : "default";

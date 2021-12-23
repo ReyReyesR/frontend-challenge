@@ -1,22 +1,21 @@
 const processReviews = (reviews) => {
-  let count = 0;
-  let total = 0;
-  let five = 0;
-  let four = 0;
-  let three = 0;
-  let two = 0;
-  let one = 0;
+  let [five, four, three, two, one] = Array(5).fill(0);
 
   reviews.map((review) => {
-    count = count + review.rating;
     if (review.rating === 5) five++;
     if (review.rating === 4) four++;
     if (review.rating === 3) three++;
     if (review.rating === 2) two++;
     if (review.rating === 1) one++;
   });
-  total = count / reviews.length;
-  return { total, five, four, three, two, one, count: reviews.length };
+
+  const average =
+    reviews
+      .map((review) => review.rating)
+      .reduce((prev, curr) => prev + curr, 0) / reviews.length;
+  const count = reviews.length;
+  const results = [five, four, three, two, one];
+  return { average, results, count };
 };
 
 export default processReviews;

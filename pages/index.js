@@ -20,12 +20,11 @@ const Home = () => {
       setReviews(allReviews);
     } else {
       const allReviews = await getReviews();
-      const { total, five, four, three, two, one, count } =
-        processReviews(allReviews);
-      setData([five, four, three, two, one]);
-      setValue(parseFloat(total.toFixed(2)));
+      const { average, results, total } = processReviews(allReviews);
+      setData(results);
+      setValue(parseFloat(average.toFixed(2)));
       setReviews(allReviews);
-      setRatings(count);
+      setRatings(total);
     }
   };
 
@@ -74,7 +73,7 @@ const Home = () => {
                   </div>
                 )}
                 <div className={classes.chart}>
-                  <Chart data={data} filter={reviewFilterCallback} />
+                  <Chart data={data} callback={reviewFilterCallback} />
                 </div>
               </div>
             }
