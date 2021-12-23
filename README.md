@@ -42,7 +42,7 @@ I aimed at 100 points at SEO, Accessibility and Good Practices.
 
 - Improve the tree shaking for the unused JavaScript for those last points for a 100/100 performance score.
 
-![Performance](public/lighthouse-report.png)
+![Performance](public/lighthouse.png)
 
 ## Features
 
